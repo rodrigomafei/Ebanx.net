@@ -6,10 +6,20 @@
     <Company>Infinitus Solutions</Company>
     <RepositoryUrl>https://github.com/rodrigomafei/Ebanx.net</RepositoryUrl>
     <PackageTags>ebanx, infinitus</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <Description>Library to Ebanx Api</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
