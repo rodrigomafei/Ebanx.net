@@ -270,6 +270,7 @@ namespace Ebanx.net.Commands.PaymentApi
         /// <para><b>*personal:</b> Natural person.</para>
         /// </summary>
         [JsonProperty("person_type")]
+        
         public string PersonType { get; set; }
 
         /// <summary>
