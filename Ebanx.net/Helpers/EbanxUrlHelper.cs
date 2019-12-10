@@ -5,7 +5,7 @@ using static Ebanx.net.Constants;
 
 namespace Ebanx.net.Helpers
 {
-    public static class URLHelper
+    public static class EbanxUrlHelper
     {
         public static string GetApiUrl(APIEnvironment environment = APIEnvironment.Prod, APIName? name = null, string nameString = null)
         {
@@ -14,11 +14,11 @@ namespace Ebanx.net.Helpers
             switch (environment)
             {
                 case APIEnvironment.Prod:
-                    uri += APIUri;
+                    uri += APIUrl;
                     break;
 
                 case APIEnvironment.Stag:
-                    uri += APIUriStag;
+                    uri += APIUrlStag;
                     break;
             }
 

@@ -6,10 +6,14 @@ namespace Ebanx.net
 {
     public static class Constants
     {
-        public const string APIUri = "https://api.ebanx.com.br/ws/";
-        public const string APIUriStag = "https://staging.ebanx.com.br/ws/";
+        /// <summary>
+        /// Prod Url
+        /// </summary>
+        public const string APIUrl = "https://api.ebanx.com.br/ws/";
 
-        
-       
+        /// <summary>
+        /// Stag Url
+        /// </summary>
+        public const string APIUrlStag = "https://staging.ebanx.com.br/ws/";
     }
 }

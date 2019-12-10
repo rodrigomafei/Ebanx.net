@@ -82,9 +82,9 @@
         public string BoletoBarcodeRaw { get; set; }
 
         [JsonProperty("pre_approved")]
-        public bool PreApproved { get; set; }
+        public bool? PreApproved { get; set; }
 
         [JsonProperty("capture_available")]
-        public bool CaptureAvailable { get; set; }
+        public bool? CaptureAvailable { get; set; }
     }
 }

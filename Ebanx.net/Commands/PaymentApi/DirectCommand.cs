@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ebanx.net.Commands.PaymentApi
 {
-    public class DirectCommand
+    public class DirectCommand : BaseCommand
     {
         /// <summary>
         /// Your unique and secret integration key.
