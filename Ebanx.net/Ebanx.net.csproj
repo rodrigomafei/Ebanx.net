@@ -9,6 +9,11 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <Description>Library to Ebanx Api</Description>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageProjectUrl>https://github.com/rodrigomafei/Ebanx.net/blob/master/README.md</PackageProjectUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
