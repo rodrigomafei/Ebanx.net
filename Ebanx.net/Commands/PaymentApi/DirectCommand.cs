@@ -11,7 +11,19 @@ namespace Ebanx.net.Commands.PaymentApi
         /// Your unique and secret integration key.
         /// </summary>
         [JsonProperty("integration_key")]
-        public string IntegrationKey { get; set; }
+        public string IntegrationKey { get
+            {
+                switch (Environment)
+                {
+                    default:
+                    case Helpers.EbanxUrlHelper.APIEnvironment.Prod:
+                        return Parameters.ProdIntegrationKey;
+
+                    case Helpers.EbanxUrlHelper.APIEnvironment.Stag:
+                        return Parameters.StagIntegrationKey;
+                }
+            }
+        }
 
         /// <summary>
         /// Must be <b>request.</b>
