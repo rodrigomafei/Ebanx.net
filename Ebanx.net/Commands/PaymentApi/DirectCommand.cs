@@ -283,7 +283,20 @@ namespace Ebanx.net.Commands.PaymentApi
         /// </summary>
         [JsonProperty("person_type")]
         
-        public string PersonType { get; set; }
+        public string PersonType { get
+            {
+                var docNumber = Document ?? string.Empty;
+
+                docNumber = docNumber.Replace(".", "");
+                docNumber = docNumber.Replace("-", "");
+                docNumber = docNumber.Replace("/", "");
+
+                if (docNumber.Length == 14)
+                    return "business";
+
+                return string.Empty;
+            }
+        }
 
         /// <summary>
         /// A JSON object that represents the responsible. Required if person_type = business.

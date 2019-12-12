@@ -14,6 +14,12 @@
 
         [JsonProperty("status")]
         public string Status { get; set; }
+
+        [JsonProperty("status_code")]
+        public string StatusCode { get; set; }
+
+        [JsonProperty("status_message")]
+        public string StatusMessage { get; set; }
     }
 
     public partial class Payment
