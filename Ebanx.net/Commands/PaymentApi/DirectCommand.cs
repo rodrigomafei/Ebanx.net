@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,10 +18,10 @@ namespace Ebanx.net.Commands.PaymentApi
                 {
                     default:
                     case Helpers.EbanxUrlHelper.APIEnvironment.Prod:
-                        return Parameters.ProdIntegrationKey;
+                        return Parameters.Keys?.Payment?.ProdIntegrationKey;
 
                     case Helpers.EbanxUrlHelper.APIEnvironment.Stag:
-                        return Parameters.StagIntegrationKey;
+                        return Parameters.Keys?.Payment?.StagIntegrationKey;
                 }
             }
         }
@@ -61,66 +62,6 @@ namespace Ebanx.net.Commands.PaymentApi
         {
             Items = new List<ItemCommand>();
         }
-
-        /// <summary>
-        /// Customer name.
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Customer email address.
-        /// </summary>
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
-        /// <summary>
-        /// Three-letter code of the payment currency. Supported currencies:
-        /// * BRL
-        /// </summary>
-        [JsonProperty("currency_code")]
-        public string CurrencyCode { get; set; }
-
-        /// <summary>
-        /// The amount in the specified currency (currency_code). E.g.: 100.50
-        /// </summary>
-        [JsonProperty("amount_total")]
-        public float AmountTotal { get; set; }
-
-        /// <summary>
-        /// The payment hash Merchant Payment Code (unique merchant ID).
-        /// </summary>
-        [JsonProperty("merchant_payment_code")]
-        public string MerchantPaymentCode { get; set; }
-
-        /// <summary>
-        /// The code of the payment method. The supported codes are:
-        /// <list type="bullet">
-        /// <item><b>amex:</b> American Express credit card.</item>
-        /// <item><b>boleto:</b> Boleto bancário.</item>
-        /// <item><b>diners:</b> Diners credit card.</item>
-        /// <item><b>discover:</b>  Discover credit card.</item>
-        /// <item><b>elo:</b> Elo credit card.</item>
-        /// <item><b>hipercard:</b> Hipercard credit card.</item>
-        /// <item><b>mastercard:</b> MasterCard credit card.</item>
-        /// <item><b>visa:</b> Visa credit card.</item>
-        /// </list>
-        /// </summary>
-        [JsonProperty("payment_type_code")]
-        public string TypeCode { get; set; }
-
-        /// <summary>
-        /// Customers document.
-        ///<para>* Brazil: requires a valid CPF(natural person taxpayer ID) or CNPJ(business taxpayer ID).</para>
-        /// </summary>
-        [JsonProperty("document")]
-        public string Document { get; set; }
-
-        /// <summary>
-        /// Customer’s IP adress. It may be used by an anti-fraud tool.
-        /// </summary>
-        [JsonProperty("customer_ip")]
-        public string CustomerIp { get; set; }
 
         /// <summary>
         /// Customer’s zipcode.
@@ -171,10 +112,77 @@ namespace Ebanx.net.Commands.PaymentApi
         public string Country { get; set; }
 
         /// <summary>
+        /// Customer’s IP adress. It may be used by an anti-fraud tool.
+        /// </summary>
+        [JsonProperty("customer_ip")]
+        public string CustomerIp { get; set; }
+
+        /// <summary>
+        /// Customer name.
+        /// </summary>
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Customer email address.
+        /// </summary>
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Customers document.
+        ///<para>* Brazil: requires a valid CPF(natural person taxpayer ID) or CNPJ(business taxpayer ID).</para>
+        /// </summary>
+        [JsonProperty("document")]
+        public string Document { get; set; }
+
+        /// <summary>
         /// Customer phone number. It is required for all countries.
         /// </summary>
         [JsonProperty("phone_number")]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Optional parameter that can be used to identify the type of customer:
+        /// <para><b>business:</b>Corporation, legal entity.</para>
+        /// <para><b>*personal:</b> Natural person.</para>
+        /// </summary>
+        [JsonProperty("person_type")]
+        public string PersonType
+        {
+            get
+            {
+                var docNumber = Document ?? string.Empty;
+
+                docNumber = docNumber.Replace(".", "");
+                docNumber = docNumber.Replace("-", "");
+                docNumber = docNumber.Replace("/", "");
+
+                if (docNumber.Length == 14)
+                    return "business";
+
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Three-letter code of the payment currency. Supported currencies:
+        /// * BRL
+        /// </summary>
+        [JsonProperty("currency_code")]
+        public string CurrencyCode { get; set; }
+
+        /// <summary>
+        /// The amount in the specified currency (currency_code). E.g.: 100.50
+        /// </summary>
+        [JsonProperty("amount_total")]
+        public float AmountTotal { get; set; }
+
+        /// <summary>
+        /// The payment hash Merchant Payment Code (unique merchant ID).
+        /// </summary>
+        [JsonProperty("merchant_payment_code")]
+        public string MerchantPaymentCode { get; set; }
 
         /// <summary>
         ///Optional parameters that can be used by the merchant associate additional info to the payment. These parameters will be appended to the “response_url“ when the transaction is finished.
@@ -230,7 +238,7 @@ namespace Ebanx.net.Commands.PaymentApi
         /// <para>* <b>Brazil</b>: 1 to 12 (depending on your contract).</para>
         /// </summary>
         [JsonProperty("instalments")]
-        public int Instalments { get; set; }
+        public int Instalments { get; set; } = 1;
 
         /// <summary>
         /// Object containing the customers credit card information.
@@ -277,35 +285,50 @@ namespace Ebanx.net.Commands.PaymentApi
         public string RedirectUrl { get; set; }
 
         /// <summary>
-        /// Optional parameter that can be used to identify the type of customer:
-        /// <para><b>business:</b>Corporation, legal entity.</para>
-        /// <para><b>*personal:</b> Natural person.</para>
-        /// </summary>
-        [JsonProperty("person_type")]
-        
-        public string PersonType { get
-            {
-                var docNumber = Document ?? string.Empty;
-
-                docNumber = docNumber.Replace(".", "");
-                docNumber = docNumber.Replace("-", "");
-                docNumber = docNumber.Replace("/", "");
-
-                if (docNumber.Length == 14)
-                    return "business";
-
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
         /// A JSON object that represents the responsible. Required if person_type = business.
         /// </summary>
         [JsonProperty("responsible")]
         public ResponsibleCommand Responsible { get; set; }
 
+        public PaymentMethodEnum PaymentMethod { get; set; }
+
+        #region Getters
+
+        /// <summary>
+        /// The code of the payment method. The supported codes are:
+        /// <list type="bullet">
+        /// <item><b>amex:</b> American Express credit card.</item>
+        /// <item><b>boleto:</b> Boleto bancário.</item>
+        /// <item><b>diners:</b> Diners credit card.</item>
+        /// <item><b>discover:</b>  Discover credit card.</item>
+        /// <item><b>elo:</b> Elo credit card.</item>
+        /// <item><b>hipercard:</b> Hipercard credit card.</item>
+        /// <item><b>mastercard:</b> MasterCard credit card.</item>
+        /// <item><b>visa:</b> Visa credit card.</item>
+        /// </list>
+        /// </summary>
+        [JsonProperty("payment_type_code")]
+        public string TypeCode { 
+            get
+            {
+                switch (PaymentMethod)
+                {
+                    default:
+                    case PaymentMethodEnum.Boleto: return "boleto";
+
+                    case PaymentMethodEnum.CreditCard: return "creditcard";
+                }
+            }
+        }
+        #endregion
+
+        public enum PaymentMethodEnum
+        {
+            Boleto,
+            CreditCard
+        }
     }
 
-    
+
 
 }

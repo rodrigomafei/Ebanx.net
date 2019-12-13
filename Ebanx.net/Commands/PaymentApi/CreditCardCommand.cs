@@ -42,5 +42,24 @@ namespace Ebanx.net.Commands.PaymentApi
         /// </summary>
         [JsonProperty("token")]
         public string Token { get; set; }
+
+        /// <summary>
+        /// check if the fields were filled
+        /// </summary>
+        public bool IsValid 
+        {
+            get
+            {
+                if (
+                    string.IsNullOrEmpty(CardName)
+                    || string.IsNullOrEmpty(CardNumber)
+                    || string.IsNullOrEmpty(CVV)
+                    || string.IsNullOrEmpty(DueDate)
+                   )
+                    return false;
+
+                return true;
+            }
+        }
     }
 }
