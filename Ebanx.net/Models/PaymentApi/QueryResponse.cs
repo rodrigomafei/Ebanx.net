@@ -13,10 +13,27 @@ namespace Ebanx.net.Models.PaymentApi
         [JsonProperty("status")]
         public string Status { get; set; }
 
+        [JsonProperty("status_code")]
+        public string StatusCode { get; set; }
+
+        [JsonProperty("status_message")]
+        public string StatusMessage { get; set; }
+
         /// <summary>
         /// A JSON object that represents the payment.
         /// </summary>
         [JsonProperty("payment")]
         public Payment Payment { get; set; }
+
+        public bool Sucess 
+        {
+            get
+            {
+                if (Status == null)
+                    return false;
+
+                return Status.ToUpper().Equals("SUCCESS");
+            }
+        }
     }
 }
