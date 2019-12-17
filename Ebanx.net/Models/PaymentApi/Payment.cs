@@ -76,6 +76,9 @@ namespace Ebanx.net.Models.PaymentApi
         [JsonProperty("capture_available")]
         public bool? CaptureAvailable { get; set; }
 
+        [JsonProperty("transaction_status")]
+        public TransactionStatus TransactionStatus { get; set; }
+
         public PaymentStatusEnum PaymentStatus 
         {
             get
@@ -107,6 +110,29 @@ namespace Ebanx.net.Models.PaymentApi
             Pending,
             Confirmed,
             Cancelled
+        }
+    }
+
+    public class TransactionStatus
+    {
+        [JsonProperty("acquirer")]
+        public string Acquirer { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("authcode")]
+        public string Authcode { get; set; }
+
+        public bool Sucess
+        {
+            get
+            {
+                return Code.ToUpper() == "OK";
+            }
         }
     }
 }
