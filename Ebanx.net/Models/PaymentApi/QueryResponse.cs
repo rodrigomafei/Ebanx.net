@@ -25,7 +25,7 @@ namespace Ebanx.net.Models.PaymentApi
         [JsonProperty("payment")]
         public Payment Payment { get; set; }
 
-        public bool Sucess 
+        public bool? Sucess 
         {
             get
             {
