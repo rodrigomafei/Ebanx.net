@@ -85,9 +85,15 @@ namespace Ebanx.net.Models.PaymentApi
             {
                 try
                 {
-                    Enum.TryParse<PaymentStatusEnum>(Status, out var result);
+                    switch (Status)
+                    {
+                        case "CO": return PaymentStatusEnum.Confirmed;
+                        case "OP": return PaymentStatusEnum.Open;
+                        case "PE": return PaymentStatusEnum.Pending;
+                        case "CA": return PaymentStatusEnum.Cancelled;
+                        default: return PaymentStatusEnum.Unknown;
+                    }
 
-                    return result;
                 }
 
                 catch(Exception e)
