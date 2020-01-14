@@ -117,6 +117,14 @@ namespace Ebanx.net.Models.PaymentApi
             Confirmed,
             Cancelled
         }
+
+        public bool IsPaid 
+        {
+            get
+            {
+                return PaymentStatus == PaymentStatusEnum.Confirmed;
+            }
+        }
     }
 
     public class TransactionStatus
