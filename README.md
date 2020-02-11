@@ -1,5 +1,8 @@
 # Ebanx.net
 
+[![Nuget](https://img.shields.io/nuget/dt/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
+[![Nuget](https://img.shields.io/nuget/v/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
+
 Library for Ebanx API's
 
 # Start
