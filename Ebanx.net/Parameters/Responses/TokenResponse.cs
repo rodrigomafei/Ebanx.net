@@ -18,5 +18,7 @@ namespace Ebanx.net.Parameters.Responses
 
         [JsonProperty("masked_card_number")]
         public string MaskedCardNumber { get; set; }
+
+        public bool Success { get { return Status.Equals("SUCCESS"); } }
     }
 }

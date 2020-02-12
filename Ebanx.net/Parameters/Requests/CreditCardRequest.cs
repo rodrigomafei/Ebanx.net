@@ -65,13 +65,77 @@ namespace Ebanx.net.Parameters.Requests
 
     public abstract class CreaditCardRequestExtention
     {
-        public CreditCardRequest GetACard()
+        public static CreditCardRequest GetACard(
+            CreditCardTestRequestOperation operation = CreditCardTestRequestOperation.Valid,
+            CreditCardTestType type = CreditCardTestType.Mastercard
+            )
         {
 
+            var c = new CreditCardRequest
+            {
+                CardNumber = "",
+                CVV = "0000",
+                CardName = "Test Test",
+                DueDate = "12/2027",
+            };
+
+            switch (operation)
+            {
+                case CreditCardTestRequestOperation.InsufficientFunds:
+                    c.CardNumber = "4000000000000028";
+                    break;
+                case CreditCardTestRequestOperation.InvalidData:
+                    c.CardNumber = "4000000000000002";
+                    break;
+                case CreditCardTestRequestOperation.Valid:
+                default:
+                    switch (type)
+                    {
+                        case CreditCardTestType.AmericanExpress:
+                            c.CardNumber = "378282246310005";
+                            break;
+                        case CreditCardTestType.Aura:
+                            c.CardNumber = "5078601870000127985";
+                            break;
+                        case CreditCardTestType.Discover:
+                            c.CardNumber = "6011111111111117";
+                            break;
+                        case CreditCardTestType.Elo:
+                            c.CardNumber = "6362970000457013";
+                            break;
+                        case CreditCardTestType.Hipercard:
+                            c.CardNumber = "6062825624254001";
+                            break;
+                        case CreditCardTestType.Visa:
+                            c.CardNumber = "4111111111111111";
+                            break;
+                        case CreditCardTestType.Mastercard:
+                        default:
+                            c.CardNumber = "5555555555554444";
+                            break;
+                    }
+                    break;
+            }
+
+            return c;
         }
 
-        public enum CreaditCardRequestExtentionType
+        public enum CreditCardTestRequestOperation
         {
+            Valid,
+            InsufficientFunds,
+            InvalidData
+        }
+
+        public enum CreditCardTestType
+        {
+            AmericanExpress,
+            Aura,
+            Discover,
+            Elo,
+            Hipercard,
+            Visa,
+            Mastercard
         }
     }
 }

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Ebanx.net.Parameters.Requests.Base
 {
-    public class BaseRequest
+    public class RequestBase
     {
         [JsonProperty("integration_key")]
-        public string IntegrationKey { get; set; }
+        public string IntegrationKey { get { return Start.Keys.Payment.StagIntegrationKey; } }
 
         [JsonProperty("public_integration_key")]
-        public string PublicIntegrationKey { get; set; }
+        public string PublicIntegrationKey { get { return Start.Keys.Payment.StagPublicIntegrationKey; } }
     }
 }

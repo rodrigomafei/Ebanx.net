@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
 {
-    public class TokenRequest : BaseRequest
+    public class TokenRequest : RequestBase
     {
         public TokenRequest()
         {
