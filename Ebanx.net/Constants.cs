@@ -15,7 +15,5 @@ namespace Ebanx.net
         /// Stag Url
         /// </summary>
         public const string APIUrlStag = "https://staging.ebanx.com.br/ws/";
-
-        
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ebanx.net
 {
-    public static class Parameters
+    public static class Start
     {
         public static EbanxKeys Keys { get; set; } = new EbanxKeys();
         
@@ -25,7 +25,7 @@ namespace Ebanx.net
     public class PaymentKey
     {
         public string ProdIntegrationKey { get; set; }
-        public string StagIntegrationKey { get; set; }
+        public string StagIntegrationKey { get; set; } = "1e6acd7fecb1475befe4d417b448c5c3844d8645a92596ec16fd56e5764672cd2ccecf7547a1ecd1f3244d426df2d6aa826a";
     }
 
     public class AffiliateKey
