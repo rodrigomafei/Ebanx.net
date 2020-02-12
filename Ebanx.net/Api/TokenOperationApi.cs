@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Ebanx.net.Api
 {
-    public class ApiToken : APIResource
+    public class TokenOperationApi : APIResource
     {
-        public ApiToken()
+        public TokenOperationApi()
         {
             BaseURI = "token";
         }
 
-        public async Task<TokenResponse> GeneratedToken(TokenRequest tokenRequest)
+        public async Task<TokenResponse> GeneratedToken(TokenRequest request)
         {
-            return await PostAsync<TokenResponse>(tokenRequest);
+            return await PostAsync<TokenResponse>(request);
         }
     }
 }

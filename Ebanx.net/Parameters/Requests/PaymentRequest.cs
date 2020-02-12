@@ -21,25 +21,25 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Customer email address.
         /// </summary>
-        [JsonProperty("email")]
+        [JsonProperty("email"), Required, MinLength(5), MaxLength(100)]
         public string Email { get; set; }
 
         /// <summary>
         /// Three-letter code of the payment currency. Supported currencies:* BRL
         /// </summary>
-        [JsonProperty("currency_code")]
+        [JsonProperty("currency_code"), StringLength(3)]
         public string Currency_code { get; set; }
 
         /// <summary>
         /// The amount in the specified currency (currency_code). E.g.: 100.50
         /// </summary>
-        [JsonProperty("amount_total")]
+        [JsonProperty("amount_total"), Required]
         public float AmountTotal { get; set; }
 
         /// <summary>
         /// The payment hash Merchant Payment Code (unique merchant ID).
         /// </summary>
-        [JsonProperty("merchant_payment_code")]
+        [JsonProperty("merchant_payment_code"), MinLength(1), MaxLength(128)]
         public string MerchantPaymentCode { get; set; }
 
         /// <summary>
@@ -53,14 +53,14 @@ namespace Ebanx.net.Parameters.Requests
         ///mastercard: MasterCard credit card.
         ///visa: Visa credit card.
         ////// </summary>
-        [JsonProperty("payment_type_code")]
+        [JsonProperty("payment_type_code"), StringLength(32)]
         public string PaymentTypeCode { get; set; }
 
         /// <summary>
         /// Customers document.
         ///* Brazil: requires a valid CPF(natural person taxpayer ID) or CNPJ(business taxpayer ID).
         /// </summary>
-        [JsonProperty("document")]
+        [JsonProperty("document"), StringLength(32)]
         public string Document { get; set; }
 
         /// <summary>
@@ -72,42 +72,43 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Customer’s zipcode.
         ///* Brazil: required.
+        /// Format: 00000000
         /// </summary>
-        [JsonProperty("zipcode")]
+        [JsonProperty("zipcode"), StringLength(8)]
         public string Zipcode { get; set; }
 
         /// <summary>
         /// Customer address (street name).
         ///* Brazil: required.
         /// </summary>
-        [JsonProperty("address")]
+        [JsonProperty("address"), MinLength(1), MaxLength(100)]
         public string Address { get; set; }
 
         /// <summary>
         /// Customer street number.
         ///* Brazil: required.
         /// </summary>
-        [JsonProperty("street_number")]
+        [JsonProperty("street_number"), MinLength(1), MaxLength(30)]
         public string StreetNumber { get; set; }
 
         /// <summary>
         /// Extra address field for complimentary data.
         /// </summary>
-        [JsonProperty("street_complement")]
+        [JsonProperty("street_complement"), MinLength(1), MaxLength(100)]
         public string StreetComplement { get; set; }
 
         /// <summary>
         /// Customer city.
         ///* Brazil: required.
         /// </summary>
-        [JsonProperty("city")]
+        [JsonProperty("city"), MinLength(1), MaxLength(80)]
         public string City { get; set; }
 
         /// <summary>
         /// Customer state/region/province.
         ///* Brazil: required.
         /// </summary>
-        [JsonProperty("state")]
+        [JsonProperty("state"), MinLength(2), MaxLength(5)]
         public string State { get; set; }
 
         /// <summary>

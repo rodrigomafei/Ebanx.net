@@ -17,7 +17,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new ApiToken())
+            using (var tokenApi = new TokenOperationApi())
             {
                 var request = new TokenRequest
                 {
@@ -38,7 +38,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new ApiToken())
+            using (var tokenApi = new TokenOperationApi())
             {
                 token = await tokenApi.GeneratedToken(new TokenRequest
                 {
@@ -57,7 +57,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new ApiToken())
+            using (var tokenApi = new TokenOperationApi())
             {
                 token = await tokenApi.GeneratedToken(new TokenRequest
                 {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
@@ -17,13 +18,13 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Must be request.
         /// </summary>
-        [JsonProperty("operation")]
+        [JsonProperty("operation"), Required, StringLength(7)]
         public string Operation { get; set; }
 
         /// <summary>
         /// Currently only full mode is available.
         /// </summary>
-        [JsonProperty("mode")]
+        [JsonProperty("mode"), Required, StringLength(4)]
         public string Mode { get; set; }
 
         /// <summary>
