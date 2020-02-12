@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Parameters.Requests.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
 {
-    public class SubAccountRequest
+    public class SubAccountRequest : RequestBase
     {
         /// <summary>
         /// Name of the sub account

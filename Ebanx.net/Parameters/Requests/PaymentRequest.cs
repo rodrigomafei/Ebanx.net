@@ -1,16 +1,21 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Parameters.Requests.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
 {
-    public class PaymentRequest
+    /// <summary>
+    /// 
+    /// </summary>
+    public class PaymentRequest : RequestBase
     {
         /// <summary>
         /// Customer name.
         /// </summary>
-        [JsonProperty("name")]
+        [JsonProperty("name"), Required, MinLength(1), MaxLength(100)]
         public string Name { get; set; }
 
         /// <summary>

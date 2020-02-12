@@ -19,12 +19,14 @@ namespace Test
 
             using (var tokenApi = new ApiToken())
             {
-                token = await tokenApi.GeneratedToken(new TokenRequest
+                var request = new TokenRequest
                 {
                     Country = "BR",
                     CreditCard = CreaditCardRequestExtention.GetACard(),
                     PaymentTypeCode = "mastercard",
-                });
+                };
+
+                token = await tokenApi.GeneratedToken(request);
             }
 
             Assert.IsTrue(token.Success);

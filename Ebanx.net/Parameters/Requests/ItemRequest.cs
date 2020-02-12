@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Parameters.Requests.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
 {
-    public class ItemRequest
+    public class ItemRequest : RequestBase
     {
         /// <summary>
         /// SKU of the item

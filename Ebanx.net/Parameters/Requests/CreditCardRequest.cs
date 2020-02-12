@@ -1,34 +1,39 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Parameters.Requests.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Requests
 {
-    public class CreditCardRequest
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CreditCardRequest : RequestBase
     {
         /// <summary>
         /// Credit card number.
         /// </summary>
-        [JsonProperty("card_number")]
+        [JsonProperty("card_number"), Required, MinLength(14), MaxLength(19)]
         public string CardNumber { get; set; }
 
         /// <summary>
         /// Credit card cardholder name.
         /// </summary>
-        [JsonProperty("card_name")]
+        [JsonProperty("card_name"), Required, StringLength(64)]
         public string CardName { get; set; }
 
         /// <summary>
         /// Credit card due date (“valid thru”) in the format mm/yyyy.
         /// </summary>
-        [JsonProperty("card_due_date")]
+        [JsonProperty("card_due_date"), Required, StringLength(7)]
         public string DueDate { get; set; }
 
         /// <summary>
         /// Credit card security code.
         /// </summary>
-        [JsonProperty("card_cvv")]
+        [JsonProperty("card_cvv"), Required, MinLength(3), MaxLength(4)]
         public string CVV { get; set; }
 
         /// <summary>
@@ -74,7 +79,7 @@ namespace Ebanx.net.Parameters.Requests
             var c = new CreditCardRequest
             {
                 CardNumber = "",
-                CVV = "0000",
+                CVV = "000",
                 CardName = "Test Test",
                 DueDate = "12/2027",
             };
