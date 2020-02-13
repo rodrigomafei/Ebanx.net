@@ -1,6 +1,8 @@
 ﻿using Ebanx.net.Api.Shared;
 using Ebanx.net.Parameters.Requests;
+using Ebanx.net.Parameters.Requests.TokenOperation;
 using Ebanx.net.Parameters.Responses;
+using Ebanx.net.Parameters.Responses.TokenOperation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +17,7 @@ namespace Ebanx.net.Api
             BaseURI = "token";
         }
 
-        public async Task<TokenResponse> GeneratedToken(TokenRequest request)
+        public async Task<TokenResponse> Create(TokenRequest request)
         {
             return await PostAsync<TokenResponse>(request);
         }

@@ -203,5 +203,73 @@ namespace Ebanx.net.Parameters.Responses
         /// </summary>
         [JsonProperty("chargeback")]
         public ChargeBackResponse Chargeback { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PaymentStatusEnum PaymentStatus
+        {
+            get
+            {
+                try
+                {
+                    switch (Status)
+                    {
+                        case "CO": return PaymentStatusEnum.Confirmed;
+                        case "OP": return PaymentStatusEnum.Open;
+                        case "PE": return PaymentStatusEnum.Pending;
+                        case "CA": return PaymentStatusEnum.Cancelled;
+                        default: return PaymentStatusEnum.Unknown;
+                    }
+
+                }
+
+                catch (Exception e)
+                {
+                    return PaymentStatusEnum.Unknown;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para><b>(Open) OP:</b> the customer has not yet filled the payment details on the EBANX Checkout. It can change either to CA (time out) or PE.</para>
+        /// <para><b>(Pending) PE:</b> the payment is pending confirmation. It can change either to CA or CO.</para>
+        /// <para><b>(Confirmed) CO:</b> the payment is confirmed (paid).</para>
+        /// <para><b>(Cancelled) CA:</b> the payment is cancelled.</para>
+        /// </summary>
+        public enum PaymentStatusEnum
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            Unknown,
+            /// <summary>
+            /// 
+            /// </summary>
+            Open,
+            /// <summary>
+            /// 
+            /// </summary>
+            Pending,
+            /// <summary>
+            /// 
+            /// </summary>
+            Confirmed,
+            /// <summary>
+            /// 
+            /// </summary>
+            Cancelled
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsPaid
+        {
+            get
+            {
+                return PaymentStatus == PaymentStatusEnum.Confirmed;
+            }
+        }
     }
 }

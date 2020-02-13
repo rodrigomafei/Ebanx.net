@@ -1,7 +1,9 @@
 ﻿using Ebanx.net.Api.Shared;
 using Ebanx.net.Models.PaymentApi;
 using Ebanx.net.Parameters.Requests;
+using Ebanx.net.Parameters.Requests.DirectOperation;
 using Ebanx.net.Parameters.Responses;
+using Ebanx.net.Parameters.Responses.DirectOperation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +18,7 @@ namespace Ebanx.net.Api
             BaseURI = "direct";
         }
 
-        public async Task<DirectResponse> GeneratedDirect(DirectRequest request)
+        public async Task<DirectResponse> Create(DirectRequest request)
         {
             return await PostAsync<DirectResponse>(request);
         }

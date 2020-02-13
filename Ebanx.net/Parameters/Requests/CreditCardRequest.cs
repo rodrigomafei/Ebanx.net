@@ -15,25 +15,25 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Credit card number.
         /// </summary>
-        [JsonProperty("card_number"), Required, MinLength(14), MaxLength(19)]
+        [JsonProperty("card_number"), MinLength(14), MaxLength(19)]
         public string CardNumber { get; set; }
 
         /// <summary>
         /// Credit card cardholder name.
         /// </summary>
-        [JsonProperty("card_name"), Required, StringLength(64)]
+        [JsonProperty("card_name"), StringLength(64)]
         public string CardName { get; set; }
 
         /// <summary>
         /// Credit card due date (“valid thru”) in the format mm/yyyy.
         /// </summary>
-        [JsonProperty("card_due_date"), Required, StringLength(7)]
+        [JsonProperty("card_due_date"), StringLength(7)]
         public string DueDate { get; set; }
 
         /// <summary>
         /// Credit card security code.
         /// </summary>
-        [JsonProperty("card_cvv"), Required, MinLength(3), MaxLength(4)]
+        [JsonProperty("card_cvv"), MinLength(3), MaxLength(4)]
         public string CVV { get; set; }
 
         /// <summary>
@@ -68,6 +68,10 @@ namespace Ebanx.net.Parameters.Requests
         }
     }
 
+    /// <summary>
+    /// Take test cards from ebanx
+    /// Reference: https://developers.ebanxpagamentos.com/guides/going-live/test-card-numbers/
+    /// </summary>
     public abstract class CreaditCardRequestExtention
     {
         public static CreditCardRequest GetACard(

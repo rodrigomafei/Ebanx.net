@@ -1,6 +1,8 @@
 ﻿using Ebanx.net.Api;
 using Ebanx.net.Parameters.Requests;
+using Ebanx.net.Parameters.Requests.TokenOperation;
 using Ebanx.net.Parameters.Responses;
+using Ebanx.net.Parameters.Responses.TokenOperation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace Test
     public class TokenTest
     {
         [TestMethod]
-        public async Task GeneratedToken()
+        public async Task Create()
         {
             var token = new TokenResponse();
 
@@ -26,7 +28,7 @@ namespace Test
                     PaymentTypeCode = "mastercard",
                 };
 
-                token = await tokenApi.GeneratedToken(request);
+                token = await tokenApi.Create(request);
             }
 
             Assert.IsTrue(token.Success);
@@ -34,13 +36,13 @@ namespace Test
         }
 
         [TestMethod]
-        public async Task GeneratedTokenInvalidCardInsufficientFunds()
+        public async Task CreateWithInvalidCardInsufficientFunds()
         {
             var token = new TokenResponse();
 
             using (var tokenApi = new EbanxTokenOperationApi())
             {
-                token = await tokenApi.GeneratedToken(new TokenRequest
+                token = await tokenApi.Create(new TokenRequest
                 {
                     Country = "BR",
                     CreditCard = CreaditCardRequestExtention.GetACard(CreaditCardRequestExtention.CreditCardTestRequestOperation.InsufficientFunds),
@@ -53,13 +55,13 @@ namespace Test
         }
 
         [TestMethod]
-        public async Task GeneratedTokenInvalidCardInvalidData()
+        public async Task CreateWithInvalidCardInvalidData()
         {
             var token = new TokenResponse();
 
             using (var tokenApi = new EbanxTokenOperationApi())
             {
-                token = await tokenApi.GeneratedToken(new TokenRequest
+                token = await tokenApi.Create(new TokenRequest
                 {
                     Country = "BR",
                     CreditCard = CreaditCardRequestExtention.GetACard(CreaditCardRequestExtention.CreditCardTestRequestOperation.InvalidData),

@@ -7,6 +7,9 @@ namespace Ebanx.net.Parameters.Responses.Base
 {
     public class ResponseBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("status")]
         public string Status { get; set; }
 

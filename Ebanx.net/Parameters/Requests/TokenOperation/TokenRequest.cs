@@ -1,11 +1,12 @@
-﻿using Ebanx.net.Parameters.Requests.Base;
+﻿using Ebanx.net.Parameters.Requests;
+using Ebanx.net.Parameters.Requests.Base;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Ebanx.net.Parameters.Requests
+namespace Ebanx.net.Parameters.Requests.TokenOperation
 {
     /// <summary>
     /// https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-token-operation/

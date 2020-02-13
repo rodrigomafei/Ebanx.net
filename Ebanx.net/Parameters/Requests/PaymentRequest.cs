@@ -51,7 +51,7 @@ namespace Ebanx.net.Parameters.Requests
         /// elo: Elo credit card.
         /// hipercard: Hipercard credit card.
         /// mastercard: MasterCard credit card.
-        ///visa: Visa credit card.
+        /// visa: Visa credit card.
         ////// </summary>
         [JsonProperty("payment_type_code"), StringLength(32)]
         public string PaymentTypeCode { get; set; }
