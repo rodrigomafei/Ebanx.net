@@ -7,7 +7,7 @@
 | Operation     |Working| Api
 | -------------|:--------:| :--------|
 | Token |✔ | TokenOperationApi.GeneratedToken() |
-| Direct  |✖ | DirectOperationApi.GeneratedDirect() |
+| Direct  |✔ | DirectOperationApi.GeneratedDirect() |
 
 # Start
 
