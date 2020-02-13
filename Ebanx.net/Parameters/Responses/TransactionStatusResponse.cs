@@ -34,5 +34,10 @@ namespace Ebanx.net.Parameters.Responses
         /// </summary>
         [JsonProperty("authcode")]
         public string Authcode { get; set; }
+
+        /// <summary>
+        /// Return true if transaction is success
+        /// </summary>
+        public bool Success { get { return Code.Equals("OK"); } }
     }
 }

@@ -27,8 +27,8 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Three-letter code of the payment currency. Supported currencies:* BRL
         /// </summary>
-        [JsonProperty("currency_code"), StringLength(3)]
-        public string Currency_code { get; set; }
+        [JsonProperty("currency_code"), Required, StringLength(3)]
+        public string CurrencyCode { get; set; }
 
         /// <summary>
         /// The amount in the specified currency (currency_code). E.g.: 100.50
@@ -39,18 +39,18 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// The payment hash Merchant Payment Code (unique merchant ID).
         /// </summary>
-        [JsonProperty("merchant_payment_code"), MinLength(1), MaxLength(128)]
+        [JsonProperty("merchant_payment_code"), Required, MinLength(1), MaxLength(128)]
         public string MerchantPaymentCode { get; set; }
 
         /// <summary>
         /// The code of the payment method. The supported codes are:
-        ///amex: American Express credit card.
-        ///boleto: Boleto bancário.
-        ///diners: Diners credit card.
-        ///discover: Discover credit card.
-        ///elo: Elo credit card.
-        ///hipercard: Hipercard credit card.
-        ///mastercard: MasterCard credit card.
+        /// amex: American Express credit card.
+        /// boleto: Boleto bancário.
+        /// diners: Diners credit card.
+        /// discover: Discover credit card.
+        /// elo: Elo credit card.
+        /// hipercard: Hipercard credit card.
+        /// mastercard: MasterCard credit card.
         ///visa: Visa credit card.
         ////// </summary>
         [JsonProperty("payment_type_code"), StringLength(32)]
@@ -60,7 +60,7 @@ namespace Ebanx.net.Parameters.Requests
         /// Customers document.
         ///* Brazil: requires a valid CPF(natural person taxpayer ID) or CNPJ(business taxpayer ID).
         /// </summary>
-        [JsonProperty("document"), StringLength(32)]
+        [JsonProperty("document"), Required, StringLength(32)]
         public string Document { get; set; }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace Ebanx.net.Parameters.Requests
         /// The number of instalments of the payment (from 1 to 12, depending on your contract and the country).
         ///* Brazil: 1 to 12 (depending on your contract).
         /// </summary>
-        [JsonProperty("instalments")]
+        [JsonProperty("instalments"), Required, Range(1, 36)]
         public int Instalments { get; set; }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// The object containing the sub account’s name. Required for payments where the sub account feature is being used.
         /// </summary>
-        [JsonProperty("sub_account")]
+        [JsonProperty("sub_account"), Required]
         public SubAccountRequest SubAccount { get; set; }
 
         /// <summary>

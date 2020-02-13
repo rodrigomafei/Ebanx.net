@@ -17,7 +17,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new TokenOperationApi())
+            using (var tokenApi = new EbanxTokenOperationApi())
             {
                 var request = new TokenRequest
                 {
@@ -38,7 +38,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new TokenOperationApi())
+            using (var tokenApi = new EbanxTokenOperationApi())
             {
                 token = await tokenApi.GeneratedToken(new TokenRequest
                 {
@@ -57,7 +57,7 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new TokenOperationApi())
+            using (var tokenApi = new EbanxTokenOperationApi())
             {
                 token = await tokenApi.GeneratedToken(new TokenRequest
                 {

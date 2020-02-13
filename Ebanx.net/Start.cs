@@ -26,9 +26,9 @@ namespace Ebanx.net
     {
         public string ProdIntegrationKey { get; set; }
 
-        public string StagIntegrationKey { get; set; } = "1e6acd7fecb1475befe4d417b448c5c3844d8645a92596ec16fd56e5764672cd2ccecf7547a1ecd1f3244d426df2d6aa826a";
+        public string StagIntegrationKey { get; set; } = "your key";
 
-        public string StagPublicIntegrationKey { get; set; } = "4coOUeo9wkmdgUm7GwovATk0-9PSQKPFpnT_QXGPUu4";
+        public string StagPublicIntegrationKey { get; set; } = "your key";
     }
 
     public class AffiliateKey

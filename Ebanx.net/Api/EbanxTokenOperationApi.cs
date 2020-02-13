@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Ebanx.net.Api
 {
-    public class TokenOperationApi : APIResource
+    public class EbanxTokenOperationApi : APIResource
     {
-        public TokenOperationApi()
+        public EbanxTokenOperationApi()
         {
             BaseURI = "token";
         }

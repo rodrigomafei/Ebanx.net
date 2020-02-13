@@ -9,12 +9,6 @@ namespace Ebanx.net.Parameters.Requests
 {
     public class DirectRequest : RequestBaseWithKey
     {
-        public DirectRequest(string _operation, string _mode)
-        {
-            Operation = _operation;
-            Mode = _mode;
-        }
-
         /// <summary>
         /// Must be request.
         /// </summary>

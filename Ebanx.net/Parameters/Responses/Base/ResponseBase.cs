@@ -10,6 +10,9 @@ namespace Ebanx.net.Parameters.Responses.Base
         [JsonProperty("status")]
         public string Status { get; set; }
 
-        public bool Success { get { return Status.Equals("SUCCESS"); } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Success { get { return !string.IsNullOrEmpty(Status) && Status.Equals("SUCCESS"); } }
     }
 }
