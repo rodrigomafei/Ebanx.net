@@ -38,7 +38,7 @@ new Config(new EbanxKeys
 
 # How to use
         
-### Create a Direct Operation sample ([all samples](https://github.com/rodrigomafei/Ebanx.net/tree/master/Test))
+### Create a Direct Operation sample ([all samples here](https://github.com/rodrigomafei/Ebanx.net/tree/master/Test))
 ```csharp
 var token = new TokenResponse();
 
@@ -90,6 +90,6 @@ using (var directApi = new EbanxDirectOperationApi())
 ```
 
 ## Additional
- - For to run tests in this project, set your keys in ([TestBase Class](https://github.com/rodrigomafei/Ebanx.net/blob/master/Test/Base/TestBase.cs))
+ - For to run tests in this project, set your keys in [TestBase Class](https://github.com/rodrigomafei/Ebanx.net/blob/master/Test/Base/TestBase.cs)
  
  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](#)
