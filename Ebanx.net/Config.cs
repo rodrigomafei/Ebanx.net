@@ -9,18 +9,26 @@ namespace Ebanx.net
     /// <summary>
     /// Ebanx start configuration
     /// </summary>
-    public static class Config
+    public class Config
     {
+        public Config(EbanxKeys _ebanxKeys, EbanxAPIEnvironment _environment = EbanxAPIEnvironment.Staging)
+        {
+            Keys = _ebanxKeys;
+            Environment = _environment;
+        }
+
         /// <summary>
         /// Default is staging
         /// </summary>
+        [Required]
         public static EbanxAPIEnvironment Environment { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public static EbanxKeys Keys { get; set; } = new EbanxKeys();
-        
+        [Required]
+        public static EbanxKeys Keys { get; set; }
+
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
-﻿using Ebanx.net.Api;
+﻿using Ebanx.net;
+using Ebanx.net.Api;
 using Ebanx.net.Parameters.Requests;
 using Ebanx.net.Parameters.Requests.TokenOperation;
 using Ebanx.net.Parameters.Responses;
@@ -8,11 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Base;
 
 namespace Test
 {
     [TestClass]
-    public class TokenTest
+    public class TokenTest : TestBase
     {
         [TestMethod]
         public async Task Create()

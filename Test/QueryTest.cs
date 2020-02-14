@@ -7,11 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Base;
 
 namespace Test
 {
     [TestClass]
-    public class QueryTest
+    public class QueryTest : TestBase
     {
         [TestMethod]
         public async Task Create()

@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Base;
 
 namespace Test
 {
     [TestClass]
-    public class RefundOrCancelTest
+    public class RefundOrCancelTest : TestBase
     {
         [TestMethod]
         public async Task Create()
