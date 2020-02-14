@@ -1,6 +1,14 @@
 # Ebanx.net
 Is a .net library from [Ebanx Payments](https://developers.ebanxpagamentos.com/)
 
+# Start
+### Install your project
+[![Nuget](https://img.shields.io/nuget/dt/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
+[![Nuget](https://img.shields.io/nuget/v/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
+
+```npm
+PM > Install-Package Ebanx.net
+```
 ## Support
 | Operation     |Working| Api
 | -------------|:--------:| :--------|
@@ -13,15 +21,6 @@ Is a .net library from [Ebanx Payments](https://developers.ebanxpagamentos.com/)
 | [Refund Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-refund-operation/)  |✔ | EbanxRefundOperationApi.Create() |
 | [Request Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-request-operation/)  |✔ | EbanxRequestOperationApi.Create() |
 | [SetCvv Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/setcvv-operation/)  | ✖ | EbanxSetCvvOperationApi.Create() |
-
-# Start
-### Install your project
-[![Nuget](https://img.shields.io/nuget/dt/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
-[![Nuget](https://img.shields.io/nuget/v/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
-
-```npm
-PM > Install-Package Ebanx.net
-```
 
 ### Configure
 ```csharp
