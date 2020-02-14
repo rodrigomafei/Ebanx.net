@@ -6,7 +6,9 @@ Is a .net library from ([Ebanx Payments](https://developers.ebanxpagamentos.com/
 [![Nuget](https://img.shields.io/nuget/dt/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
 [![Nuget](https://img.shields.io/nuget/v/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
 
+```npm
 PM > Install-Package Ebanx.net
+```
 
 ### Configure
 ```csharp
@@ -24,9 +26,7 @@ new Config(new EbanxKeys
 
 # How to use
         
-## Sample ([all samples](https://github.com/rodrigomafei/Ebanx.net/tree/master/Test))
-
-### Create a Direct Operation
+### Create a Direct Operation sample ([all samples](https://github.com/rodrigomafei/Ebanx.net/tree/master/Test))
 ```csharp
 var token = new TokenResponse();
 
