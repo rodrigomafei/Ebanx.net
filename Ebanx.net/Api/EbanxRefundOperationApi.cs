@@ -1,10 +1,9 @@
 ﻿using Ebanx.net.Api.Shared;
-using Ebanx.net.Parameters.Requests;
-using Ebanx.net.Parameters.Requests.TokenOperation;
+using Ebanx.net.Parameters.Requests.RefundOperation;
 using Ebanx.net.Parameters.Responses;
-using Ebanx.net.Parameters.Responses.TokenOperation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,14 +12,14 @@ namespace Ebanx.net.Api
     /// <summary>
     /// 
     /// </summary>
-    public class EbanxTokenOperationApi : APIResource
+    public class EbanxRefundOperationApi : APIResource
     {
         /// <summary>
         /// 
         /// </summary>
-        public EbanxTokenOperationApi()
+        public EbanxRefundOperationApi()
         {
-            BaseURI = "token";
+            BaseURI = "refund";
         }
 
         /// <summary>
@@ -28,9 +27,9 @@ namespace Ebanx.net.Api
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<TokenResponse> Create(TokenRequest request)
+        public async Task<RefundResponse> Create(RefundRequest request)
         {
-            return await PostAsync<TokenResponse>(request);
+            return await PostAsync<RefundResponse>(request);
         }
     }
 }

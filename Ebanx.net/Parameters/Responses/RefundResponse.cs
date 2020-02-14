@@ -1,11 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using Ebanx.net.Parameters.Responses.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Ebanx.net.Parameters.Responses
 {
-    public class RefundResponse
+    /// <summary>
+    /// 
+    /// </summary>
+    public class RefundResponse : ResponseBase
     {
         /// <summary>
         /// The ID of the refund on EBANX.

@@ -33,18 +33,13 @@ namespace Test
                         Email = "customer@mail.com",
                         AmountTotal = 500,
                         Zipcode = "000000",
-                        Address = "Rua X",
+                        Address = "Address X",
                         StreetNumber = "5",
                         City = "City",
                         State = "SP",
                         Country = "BR",
                         PhoneNumber = "999999999",
                         CreditCard = CreaditCardRequestExtention.GetACard(),
-                        SubAccount = new SubAccountRequest
-                        {
-                            Name = "SubAccount Name",
-                            ImageUrl = "Image Uri"
-                        },
                         CurrencyCode = "BRL",
                         MerchantPaymentCode = Guid.NewGuid().ToString(),
                         Document = "29479146002",

@@ -195,7 +195,7 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// The object containing the sub account’s name. Required for payments where the sub account feature is being used.
         /// </summary>
-        [JsonProperty("sub_account"), Required]
+        [JsonProperty("sub_account")]
         public SubAccountRequest SubAccount { get; set; }
 
         /// <summary>

@@ -23,8 +23,16 @@ namespace Ebanx.net.Parameters.Requests.Base
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Validation
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsModelValid(this object obj)
         {
             var resultadoValidacao = new List<ValidationResult>();
