@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Ebanx.net
 {
+    /// <summary>
+    /// Ebanx start configuration
+    /// </summary>
     public static class Config
     {
         /// <summary>
@@ -13,12 +16,21 @@ namespace Ebanx.net
         /// </summary>
         public static EbanxAPIEnvironment Environment { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static EbanxKeys Keys { get; set; } = new EbanxKeys();
         
     }
 
+    /// <summary>
+    /// Integrations keys from Ebanx
+    /// </summary>
     public class EbanxKeys
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public EbanxKeys()
         {
             Payment = new PaymentKey();
@@ -29,21 +41,39 @@ namespace Ebanx.net
         public AffiliateKey Affiliate { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class PaymentKey
     {
+        /// <summary>
+        /// Your unique and secret integration key.
+        /// </summary>
         public string ProdIntegrationKey { get; set; }
 
         public string ProdPublicIntegrationKey { get; set; }
 
-        public string StagIntegrationKey { get; set; } = "1e6acd7fecb1475befe4d417b448c5c3844d8645a92596ec16fd56e5764672cd2ccecf7547a1ecd1f3244d426df2d6aa826a";
+        /// <summary>
+        /// Your unique and secret integration key.
+        /// </summary>
+        public string StagIntegrationKey { get; set; }
 
-        public string StagPublicIntegrationKey { get; set; } = "4coOUeo9wkmdgUm7GwovATk0-9PSQKPFpnT_QXGPUu4";
+        public string StagPublicIntegrationKey { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class AffiliateKey
     {
+        /// <summary>
+        /// Your unique and secret integration key.
+        /// </summary>
         public string ProdIntegrationKey { get; set; }
 
+        /// <summary>
+        /// Your unique and secret integration key.
+        /// </summary>
         public string StagIntegrationKey { get; set; }
     }
 }
