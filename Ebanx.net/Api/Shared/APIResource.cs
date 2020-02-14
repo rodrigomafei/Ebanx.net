@@ -123,7 +123,6 @@ namespace Ebanx.net.Api.Shared
             using (var requestMessage = new HttpRequestMessage(method, url))
             {
                 await SetContent(data, requestMessage);
-
                 return await client.SendAsync(requestMessage).ConfigureAwait(false);
             }
         }
