@@ -1,11 +1,18 @@
-﻿using System;
+﻿using Ebanx.net.Api.Shared;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Ebanx.net
 {
-    public static class Start
+    public static class Config
     {
+        /// <summary>
+        /// Default is staging
+        /// </summary>
+        public static EbanxAPIEnvironment Environment { get; set; }
+
         public static EbanxKeys Keys { get; set; } = new EbanxKeys();
         
     }
@@ -25,6 +32,8 @@ namespace Ebanx.net
     public class PaymentKey
     {
         public string ProdIntegrationKey { get; set; }
+
+        public string ProdPublicIntegrationKey { get; set; }
 
         public string StagIntegrationKey { get; set; } = "1e6acd7fecb1475befe4d417b448c5c3844d8645a92596ec16fd56e5764672cd2ccecf7547a1ecd1f3244d426df2d6aa826a";
 

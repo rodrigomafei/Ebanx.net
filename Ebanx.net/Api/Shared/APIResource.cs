@@ -51,7 +51,7 @@ namespace Ebanx.net.Api.Shared
         public string BaseURI
         {
             get { return _baseURI; }
-            set { _baseURI = Constants.APIUrlStag + "" + value; }
+            set { _baseURI = (Config.Environment == EbanxAPIEnvironment.Staging ? Constants.APIUrlStag : Constants.APIUrl) + "" + value; }
         }
 
         /// <summary>

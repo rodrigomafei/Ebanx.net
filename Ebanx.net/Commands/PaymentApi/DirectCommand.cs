@@ -18,10 +18,10 @@ namespace Ebanx.net.Commands.PaymentApi
                 {
                     default:
                     case Helpers.EbanxUrlHelper.APIEnvironment.Prod:
-                        return Start.Keys?.Payment?.ProdIntegrationKey;
+                        return Config.Keys?.Payment?.ProdIntegrationKey;
 
                     case Helpers.EbanxUrlHelper.APIEnvironment.Stag:
-                        return Start.Keys?.Payment?.StagIntegrationKey;
+                        return Config.Keys?.Payment?.StagIntegrationKey;
                 }
             }
         }
