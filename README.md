@@ -1,5 +1,18 @@
 # Ebanx.net
-Is a .net library from ([Ebanx Payments](https://developers.ebanxpagamentos.com/))
+Is a .net library from [Ebanx Payments](https://developers.ebanxpagamentos.com/)
+
+## Support
+| Operation     |Working| Api
+| -------------|:--------:| :--------|
+| [Token Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-token-operation/) |✔ | EbanxTokenOperationApi.Create() |
+| [Direct Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-direct-operation/)  |✔ | EbanxDirectOperationApi.Create() |
+| [Cancel Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-cancel-operation/)  |✔ | EbanxCancelOperationApi.Create() |
+| [Capture Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-capture-operation/)  |✔ | EbanxCaptureOperationApi.Create() |
+| [Query Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-query-operation/)  |✔ | EbanxQueryOperationApi.Create() |
+| [RefundOrCancel Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-refund-or-cancel-operation/)  |✔ | EbanxRefundOrCancelOperationApi.Create() |
+| [Refund Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-refund-operation/)  |✔ | EbanxRefundOperationApi.Create() |
+| [Request Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-request-operation/)  |✔ | EbanxRequestOperationApi.Create() |
+| [SetCvv Operation](https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/setcvv-operation/)  | ✖ | EbanxSetCvvOperationApi.Create() |
 
 # Start
 ### Install your project
@@ -76,11 +89,8 @@ using (var directApi = new EbanxDirectOperationApi())
         response = await directApi.Create(request);
 }
 ```
-## Support
-| Operation     |Working| Api
-| -------------|:--------:| :--------|
-| Token |✔ | TokenOperationApi.GeneratedToken() |
-| Direct  |✔ | DirectOperationApi.GeneratedDirect() |
 
 ## Additional
  - For to run tests in this project, set your keys in ([TestBase Class](https://github.com/rodrigomafei/Ebanx.net/blob/master/Test/Base/TestBase.cs))
+ 
+ [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](#)
