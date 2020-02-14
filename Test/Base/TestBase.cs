@@ -14,7 +14,9 @@ namespace Test.Base
                 Payment = new PaymentKey
                 {
                     StagIntegrationKey = "your key",
-                    StagPublicIntegrationKey = "your key"
+                    StagPublicIntegrationKey = "your key",
+                    ProdIntegrationKey = "your key (not required to tests)",
+                    ProdPublicIntegrationKey = "your key (not required to run tests)"
                 }
             });
         }
