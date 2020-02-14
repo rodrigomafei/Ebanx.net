@@ -20,7 +20,7 @@ namespace Ebanx.net.Parameters.Requests.Base
                 if (Config.Keys == null)
                     throw new ArgumentException("Ebanx keys not informed");
 
-                return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.Payment.StagIntegrationKey : Config.Keys.Payment.ProdIntegrationKey;
+                return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.PaymentKeys.StagIntegrationKey : Config.Keys.PaymentKeys.ProdIntegrationKey;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Ebanx.net.Parameters.Requests.Base
                 if (Config.Keys == null)
                     throw new ArgumentException("Ebanx keys not informed");
 
-                return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.Payment.StagPublicIntegrationKey : Config.Keys.Payment.ProdPublicIntegrationKey; 
+                return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.PaymentKeys.StagPublicIntegrationKey : Config.Keys.PaymentKeys.ProdPublicIntegrationKey; 
             } 
         }
     }

@@ -11,7 +11,7 @@ namespace Test.Base
         {
             new Config(new EbanxKeys
             {
-                Payment = new PaymentKey
+                PaymentKeys = new PaymentKey
                 {
                     StagIntegrationKey = "your key",
                     StagPublicIntegrationKey = "your key",

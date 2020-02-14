@@ -41,12 +41,12 @@ namespace Ebanx.net
         /// </summary>
         public EbanxKeys()
         {
-            Payment = new PaymentKey();
-            Affiliate = new AffiliateKey();
+            PaymentKeys = new PaymentKey();
+            AffiliateKeys = new AffiliateKey();
         }
 
-        public PaymentKey Payment { get; set; }
-        public AffiliateKey Affiliate { get; set; }
+        public PaymentKey PaymentKeys { get; set; }
+        public AffiliateKey AffiliateKeys { get; set; }
     }
 
     /// <summary>
