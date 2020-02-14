@@ -2,7 +2,7 @@
 Is a .net library from [Ebanx Payments](https://developers.ebanxpagamentos.com/)
 
 # Start
-### Install your project
+### Install in your project
 [![Nuget](https://img.shields.io/nuget/dt/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
 [![Nuget](https://img.shields.io/nuget/v/Ebanx.net)](https://www.nuget.org/packages/Ebanx.net)
 
