@@ -90,6 +90,6 @@ using (var directApi = new EbanxDirectOperationApi())
 ```
 
 ## Additional
- - For to run tests in this project, set your keys in [TestBase Class](https://github.com/rodrigomafei/Ebanx.net/blob/master/Test/Base/TestBase.cs)
+ - For to run tests in this project, create your respective environment variables with name "EbanxStagIntegrationKey" and "EbanxStagPublicIntegrationKey". It's set here [TestBase Class](https://github.com/rodrigomafei/Ebanx.net/blob/master/Test/Base/TestBase.cs)
  
  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](#)
