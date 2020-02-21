@@ -154,7 +154,7 @@ namespace Ebanx.net.Parameters.Responses
         /// NOTE: It can be changed up to 5 (five) days.
         /// </summary>
         [JsonProperty("capture_available")]
-        public bool CaptureAvailable { get; set; }
+        public bool? CaptureAvailable { get; set; }
 
         /// <summary>
         /// The URL the customer should be redirected to. Applies to certain payment methods using the Direct API.
