@@ -21,16 +21,22 @@ namespace Test
         {
             var token = new TokenResponse();
 
-            using (var tokenApi = new EbanxTokenOperationApi())
+            using (var api = new EbanxTokenOperationApi())
             {
                 var request = new TokenRequest
                 {
                     Country = "BR",
-                    CreditCard = CreaditCardRequestExtention.GetACard(),
+                    CreditCard = new CreditCardRequest
+                    {
+                        CardNumber = "5555555555554444",
+                        CVV = "000",
+                        CardName = "Test Test",
+                        DueDate = "12/2027",
+                    },
                     PaymentTypeCode = "mastercard",
                 };
 
-                token = await tokenApi.Create(request);
+                token = await api.Create(request);
             }
 
             Assert.IsTrue(token.Success);
@@ -67,7 +73,7 @@ namespace Test
                 {
                     Country = "BR",
                     CreditCard = CreaditCardRequestExtention.GetACard(CreaditCardRequestExtention.CreditCardTestRequestOperation.InvalidData),
-                    PaymentTypeCode = "mastercard",
+                    //PaymentTypeCode = "mastercard",
                 });
             }
 

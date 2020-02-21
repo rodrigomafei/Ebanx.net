@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Ebanx.net.Parameters.Requests.DirectOperation
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DirectRequest : RequestBaseWithKey
     {
         /// <summary>

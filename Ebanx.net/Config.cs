@@ -11,6 +11,11 @@ namespace Ebanx.net
     /// </summary>
     public class Config
     {
+        /// <summary>
+        /// Start ebanx configuration
+        /// </summary>
+        /// <param name="_ebanxKeys">Keys from ebanx</param>
+        /// <param name="_environment">Ebanx endpoint environment</param>
         public Config(EbanxKeys _ebanxKeys, EbanxAPIEnvironment _environment = EbanxAPIEnvironment.Staging)
         {
             Keys = _ebanxKeys;

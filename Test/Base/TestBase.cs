@@ -13,8 +13,8 @@ namespace Test.Base
             {
                 PaymentKeys = new PaymentKey
                 {
-                    StagIntegrationKey = "your key",
-                    StagPublicIntegrationKey = "your key",
+                    StagIntegrationKey = Environment.GetEnvironmentVariable("EbanxStagIntegrationKey", EnvironmentVariableTarget.User),
+                    StagPublicIntegrationKey = Environment.GetEnvironmentVariable("EbanxStagPublicIntegrationKey", EnvironmentVariableTarget.User),
                     ProdIntegrationKey = "your key (not required to tests)",
                     ProdPublicIntegrationKey = "your key (not required to run tests)"
                 }

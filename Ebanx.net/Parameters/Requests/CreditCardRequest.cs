@@ -15,7 +15,7 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Credit card number.
         /// </summary>
-        [JsonProperty("card_number"), MinLength(14), MaxLength(19)]
+        [JsonProperty("card_number"), CreditCard]
         public string CardNumber { get; set; }
 
         /// <summary>

@@ -13,6 +13,9 @@ namespace Ebanx.net.Parameters.Responses.CaptureOperation
     /// </summary>
     public class CaptureResponse : ResponseBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("payment")]
         public PaymentResponse Payment { get; set; }
     }

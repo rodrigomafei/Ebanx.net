@@ -21,7 +21,7 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Customer email address.
         /// </summary>
-        [JsonProperty("email"), Required, MinLength(5), MaxLength(100)]
+        [JsonProperty("email"), Required, EmailAddress, MinLength(5), MaxLength(100)]
         public string Email { get; set; }
 
         /// <summary>

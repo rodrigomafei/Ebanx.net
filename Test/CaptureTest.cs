@@ -18,14 +18,14 @@ namespace Test
         {
             var response = new CaptureResponse();
 
-            using (var tokenApi = new EbanxCaptureOperationApi())
+            using (var api = new EbanxCaptureOperationApi())
             {
                 var request = new CaptureRequest
                 {
-                     
+                      
                 };
 
-                response = await tokenApi.Create(request);
+                response = await api.Create(request);
             }
 
             Assert.IsFalse(response.Success);

@@ -16,7 +16,7 @@ namespace Ebanx.net.Parameters.Requests.TokenOperation
         /// <summary>
         /// The credit card scheme: amex, elo, hipercard, mastercard, visa.
         /// </summary>
-        [JsonProperty("payment_type_code"), StringLength(32), Required]
+        [JsonProperty("payment_type_code"), StringLength(32)]
         public string PaymentTypeCode { get; set; }
 
         /// <summary>

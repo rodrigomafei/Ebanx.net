@@ -98,15 +98,10 @@ namespace Test
                         {
                             Token = token.Token
                         },
-                        SubAccount = new SubAccountRequest
-                        {
-                            Name = "SubAccount Name",
-                            ImageUrl = "Image Uri"
-                        },
                         CurrencyCode = "BRL",
                         MerchantPaymentCode = Guid.NewGuid().ToString(),
                         Document = "29479146002",
-                        Instalments = 12
+                        Instalments = 1
                     }
                 };
 
@@ -141,6 +136,8 @@ namespace Test
                         Country = "BR",
                         PhoneNumber = "999999999",
                         CreditCard = CreaditCardRequestExtention.GetACard(CreaditCardRequestExtention.CreditCardTestRequestOperation.InsufficientFunds),
+                        
+                        //PaymentTypeCode = "boleto",
                         SubAccount = new SubAccountRequest
                         {
                             Name = "SubAccount Name",
@@ -149,7 +146,7 @@ namespace Test
                         CurrencyCode = "BRL",
                         MerchantPaymentCode = Guid.NewGuid().ToString(),
                         Document = "29479146002",
-                        Instalments = 12
+                        Instalments = 1
                     }
                 };
 
