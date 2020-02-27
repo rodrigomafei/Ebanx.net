@@ -14,14 +14,16 @@ namespace Ebanx.net.Api
     /// </summary>
     public class EbanxCancelOperationApi : APIResource
     {
-        public EbanxCancelOperationApi()
+        public EbanxCancelOperationApi(CancelRequest request)
         {
-            BaseURI = "cancel";
+            var uri = string.Format("cancel?integration_key={0}&hash={1}", request.IntegrationKey, request.Hash);
+
+            BaseURI = uri;
         }
 
-        public async Task<CancelResponse> Create(CancelRequest request)
+        public async Task<CancelResponse> Create()
         {
-            return await PostAsync<CancelResponse>(request);
+            return await GetAsync<CancelResponse>(null);
         }
     }
 }

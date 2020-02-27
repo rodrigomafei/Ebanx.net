@@ -39,11 +39,12 @@ namespace Test
                         State = "SP",
                         Country = "BR",
                         PhoneNumber = "999999999",
-                        CreditCard = CreaditCardRequestExtention.GetACard(),
                         CurrencyCode = "BRL",
                         MerchantPaymentCode = Guid.NewGuid().ToString(),
                         Document = "29479146002",
-                        Instalments = 12
+                        Instalments = 1,
+                        PaymentTypeCode = "boleto",
+                        DueDate = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy"),
                     }
                 };
 
@@ -51,14 +52,14 @@ namespace Test
 
                 var response = new CancelResponse();
 
-                using (var api = new EbanxCancelOperationApi())
+                var request = new CancelRequest
                 {
-                    var request = new CancelRequest
-                    {
-                        Hash = responseDirect.Payment.Hash
-                    };
+                    Hash = responseDirect.Payment.Hash
+                };
 
-                    response = await api.Create(request);
+                using (var api = new EbanxCancelOperationApi(request))
+                {
+                    response = await api.Create();
                 }
 
                 Assert.IsFalse(response.Success);
