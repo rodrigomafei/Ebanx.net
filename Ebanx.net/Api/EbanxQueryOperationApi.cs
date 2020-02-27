@@ -18,9 +18,17 @@ namespace Ebanx.net.Api
         /// <summary>
         /// 
         /// </summary>
-        public EbanxQueryOperationApi()
+        public EbanxQueryOperationApi(QueryRequest request)
         {
-            BaseURI = "query";
+            var uri = string.Format("query?integration_key={0}", request.IntegrationKey);
+
+            if (!string.IsNullOrEmpty(request.Hash))
+                uri += string.Format("&hash={0}", request.Hash);
+
+            if (!string.IsNullOrEmpty(request.MerchantPaymentCode))
+                uri += string.Format("&merchant_payment_code={0}", request.MerchantPaymentCode);
+
+            BaseURI = uri;
         }
 
         /// <summary>
@@ -28,9 +36,10 @@ namespace Ebanx.net.Api
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<QueryResponse> Create(QueryRequest request)
+        public async Task<QueryResponse> Create()
         {
-            return await PostAsync<QueryResponse>(request);
+
+            return await GetAsync<QueryResponse>(null);
         }
     }
 }

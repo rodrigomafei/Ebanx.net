@@ -13,7 +13,7 @@ namespace Ebanx.net.Parameters.Requests.Base
         /// Your unique and secret integration key.
         /// </summary>
         [JsonProperty("integration_key")]
-        private string IntegrationKey
+        public string IntegrationKey
         {
             get
             {

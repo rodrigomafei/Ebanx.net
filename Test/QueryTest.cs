@@ -19,14 +19,14 @@ namespace Test
         {
             var response = new QueryResponse();
 
-            using (var api = new EbanxQueryOperationApi())
+            var request = new QueryRequest
             {
-                var request = new QueryRequest
-                {
-                     
-                };
+                
+            };
 
-                response = await api.Create(request);
+            using (var api = new EbanxQueryOperationApi(request))
+            {
+                response = await api.Create();
             }
 
             Assert.IsFalse(response.Success);
