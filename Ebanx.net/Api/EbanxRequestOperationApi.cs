@@ -16,7 +16,7 @@ namespace Ebanx.net.Api
         /// </summary>
         public EbanxRequestOperationApi()
         {
-            BaseURI = "request";
+            SetBaseUri("request");
         }
 
         /// <summary>

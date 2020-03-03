@@ -19,7 +19,7 @@ namespace Ebanx.net.Api
         /// </summary>
         public EbanxSetCvvOperationApi()
         {
-            BaseURI = "setCvv";
+            SetBaseUri("setCvv");
         }
 
         /// <summary>

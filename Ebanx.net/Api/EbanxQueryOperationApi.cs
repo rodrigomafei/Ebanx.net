@@ -28,7 +28,7 @@ namespace Ebanx.net.Api
             if (!string.IsNullOrEmpty(request.MerchantPaymentCode))
                 uri += string.Format("&merchant_payment_code={0}", request.MerchantPaymentCode);
 
-            BaseURI = uri;
+            SetBaseUri(uri);
         }
 
         /// <summary>

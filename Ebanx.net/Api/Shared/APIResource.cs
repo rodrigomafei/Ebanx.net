@@ -17,7 +17,7 @@ namespace Ebanx.net.Api.Shared
         /// <summary>
         /// 
         /// </summary>
-        string BaseURI { get; set; }
+        string GetBaseURI();
 
         /// <summary>
         /// 
@@ -33,7 +33,7 @@ namespace Ebanx.net.Api.Shared
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
         /// <returns></returns>
-        Task<T> PostAsync<T>(object data);
+        Task<T> PostAsync<T>(object data, Dictionary<string, string> headers);
     }
 
     /// <summary>
@@ -47,11 +47,35 @@ namespace Ebanx.net.Api.Shared
         /// <summary>
         /// 
         /// </summary>
-        private string _baseURI;
-        public string BaseURI
+        private string BaseURI { get; set; }
+
+        public void SetBaseUri(string value, APIType typeApi = APIType.Payment)
         {
-            get { return _baseURI; }
-            set { _baseURI = (Config.Environment == EbanxAPIEnvironment.Staging ? Constants.APIUrlStag : Constants.APIUrl) + "" + value; }
+            switch (typeApi)
+            {
+                case APIType.Payment:
+
+                    BaseURI = (Config.Environment == EbanxAPIEnvironment.Staging ? Constants.APIUrlStag : Constants.APIUrl) + "" + value;
+
+                    break;
+
+                case APIType.Affiliate:
+
+                    BaseURI = (Config.Environment == EbanxAPIEnvironment.Staging ? Constants.APIUrlAffiliateStag : Constants.APIUrlAffiliateProd) + "" + value;
+
+                    break;
+            }
+        }
+
+        public string GetBaseURI()
+        {
+            return BaseURI;
+        }
+
+        public enum APIType
+        {
+            Payment,
+            Affiliate
         }
 
         /// <summary>
@@ -90,7 +114,7 @@ namespace Ebanx.net.Api.Shared
         public async Task<T> GetAsync<T>(object data)
         {
             //var completeUrl = GetCompleteUrl();
-            var response = await SendRequestAsync(HttpMethod.Get, BaseURI, data).ConfigureAwait(false);
+            var response = await SendRequestAsync(HttpMethod.Get, GetBaseURI(), data).ConfigureAwait(false);
             return await ProcessResponse<T>(response).ConfigureAwait(false);
         }
 
@@ -100,9 +124,9 @@ namespace Ebanx.net.Api.Shared
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<T> PostAsync<T>(object data)
+        public async Task<T> PostAsync<T>(object data, Dictionary<string, string> headers = null)
         {
-            var response = await SendRequestAsync(HttpMethod.Post, BaseURI, data).ConfigureAwait(false);
+            var response = await SendRequestAsync(HttpMethod.Post, GetBaseURI(), data, null, headers).ConfigureAwait(false);
             return await ProcessResponse<T>(response).ConfigureAwait(false);
         }
 
@@ -115,14 +139,23 @@ namespace Ebanx.net.Api.Shared
                 return await Task.FromResult(JsonConvert.DeserializeObject<T>(data, JsonSettings)).ConfigureAwait(false);
             }
 
-            throw new ArgumentException(response.RequestMessage.ToString());
+            throw new ArgumentException(data);
         }
 
-        private async Task<HttpResponseMessage> SendRequestAsync(HttpMethod method, string url, object data = null, string customToken = null)
+        private async Task<HttpResponseMessage> SendRequestAsync(HttpMethod method, string url, object data = null, string customToken = null, Dictionary<string, string> headers = null)
         {
             using (var requestMessage = new HttpRequestMessage(method, url))
             {
                 await SetContent(data, requestMessage);
+
+                if (headers != null)
+                {
+                    foreach (var i in headers)
+                    {
+                        requestMessage.Headers.Add(i.Key, i.Value);
+                    }
+                }
+
                 return await client.SendAsync(requestMessage).ConfigureAwait(false);
             }
         }
@@ -133,7 +166,10 @@ namespace Ebanx.net.Api.Shared
             {
                 var content = await Task.FromResult(JsonConvert.SerializeObject(data, JsonSettings)).ConfigureAwait(false);
                 requestMessage.Content = new StringContent(content, Encoding.UTF8, "application/json");
+                
             }
         }
+
+        
     }
 }

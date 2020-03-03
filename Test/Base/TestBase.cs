@@ -17,6 +17,11 @@ namespace Test.Base
                     StagPublicIntegrationKey = Environment.GetEnvironmentVariable("EbanxStagPublicIntegrationKey", EnvironmentVariableTarget.User),
                     ProdIntegrationKey = "your key (not required to tests)",
                     ProdPublicIntegrationKey = "your key (not required to run tests)"
+                },
+                AffiliateKeys = new AffiliateKey
+                {
+                    StagIntegrationKey = Environment.GetEnvironmentVariable("EbanxAffiliateStagIntegrationKey", EnvironmentVariableTarget.User),
+                    ProdIntegrationKey = "your key (not required to run tests)"
                 }
             });
         }

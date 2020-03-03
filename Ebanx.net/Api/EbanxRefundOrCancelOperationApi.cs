@@ -19,7 +19,7 @@ namespace Ebanx.net.Api
         /// </summary>
         public EbanxRefundOrCancelOperationApi()
         {
-            BaseURI = "refundOrCancel";
+            SetBaseUri("refundOrCancel");
         }
 
         /// <summary>

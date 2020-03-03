@@ -18,7 +18,7 @@ namespace Ebanx.net.Api
         {
             var uri = string.Format("cancel?integration_key={0}&hash={1}", request.IntegrationKey, request.Hash);
 
-            BaseURI = uri;
+            SetBaseUri(uri);
         }
 
         public async Task<CancelResponse> Create()

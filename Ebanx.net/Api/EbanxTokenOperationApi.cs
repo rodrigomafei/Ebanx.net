@@ -20,7 +20,7 @@ namespace Ebanx.net.Api
         /// </summary>
         public EbanxTokenOperationApi()
         {
-            BaseURI = "token";
+            SetBaseUri("token");
         }
 
         /// <summary>

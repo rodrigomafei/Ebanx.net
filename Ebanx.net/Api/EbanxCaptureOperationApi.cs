@@ -19,7 +19,7 @@ namespace Ebanx.net.Api
         /// </summary>
         public EbanxCaptureOperationApi()
         {
-            BaseURI = "capture";
+            SetBaseUri("capture");
         }
 
         /// <summary>

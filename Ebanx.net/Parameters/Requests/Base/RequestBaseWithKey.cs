@@ -39,4 +39,20 @@ namespace Ebanx.net.Parameters.Requests.Base
             } 
         }
     }
+
+    public class RequestAffiliateBaseWithKey
+    {
+        [JsonProperty("Authorization")]
+        public string AffiliateKey
+        {
+            get
+            {
+                if (Config.Keys == null)
+                    throw new ArgumentException("Ebanx keys not informed");
+
+                return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.AffiliateKeys.StagIntegrationKey : Config.Keys.AffiliateKeys.ProdIntegrationKey;
+
+            }
+        }
+    }
 }

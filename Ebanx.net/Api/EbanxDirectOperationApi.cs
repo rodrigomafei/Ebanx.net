@@ -15,7 +15,7 @@ namespace Ebanx.net.Api
     {
         public EbanxDirectOperationApi()
         {
-            BaseURI = "direct";
+            SetBaseUri("direct");
         }
 
         public async Task<DirectResponse> Create(DirectRequest request)
