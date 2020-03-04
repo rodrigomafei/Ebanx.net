@@ -94,7 +94,7 @@ namespace Ebanx.net.Parameters.Requests
         /// <summary>
         /// Extra address field for complimentary data.
         /// </summary>
-        [JsonProperty("street_complement"), MinLength(1), MaxLength(100)]
+        [JsonProperty("street_complement"), MaxLength(100)]
         public string StreetComplement { get; set; }
 
         /// <summary>

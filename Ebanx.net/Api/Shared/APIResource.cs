@@ -123,6 +123,7 @@ namespace Ebanx.net.Api.Shared
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
+        /// <param name="headers"></param>
         /// <returns></returns>
         public async Task<T> PostAsync<T>(object data, Dictionary<string, string> headers = null)
         {
