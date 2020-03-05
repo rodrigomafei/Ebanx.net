@@ -19,6 +19,7 @@ namespace Ebanx.net.Parameters.Requests.Affiliate
         {
             BankAccounts = new List<BankAccount>();
             Contacts = new List<Contact>();
+            Document = new EntityDocument();
         }
 
         /// <summary>
