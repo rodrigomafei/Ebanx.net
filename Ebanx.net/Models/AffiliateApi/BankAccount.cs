@@ -28,7 +28,7 @@ namespace Ebanx.net.Models.AffiliateApi
         public string BranchVerificationCode { get; set; }
 
         [JsonProperty("bank_account_type")]
-        private string AccountType 
+        private string AccountType
         {
             get
             {
@@ -36,12 +36,46 @@ namespace Ebanx.net.Models.AffiliateApi
             }
         }
 
+        [JsonIgnore]
         public BankAccountTypes BankAccountType { get; set; }
 
         public enum BankAccountTypes
         {
-            corrente, 
+            corrente,
             poupanca
         }
+
+        /// <summary>
+        /// information if the fields have been filled 
+        /// </summary>
+        [JsonIgnore]
+        public bool IsValid
+        {
+            get
+            {
+                return string.IsNullOrEmpty(ValidateModel());
+            }
+        }
+
+        /// <summary>
+        /// Return message error if model is invalid
+        /// </summary>
+        /// <returns></returns>
+        public string ValidateModel()
+        {
+            var error = string.Empty;
+
+            if (string.IsNullOrEmpty(Number))
+                error += "Número da conta não informado\n";
+
+            if (string.IsNullOrEmpty(BankBranchCode))
+                error += "Agência não informada\n";
+
+            if (string.IsNullOrEmpty(BankIdentifier))
+                error += "Banco não informado\n";
+
+            return error;
+        }
+
     }
 }

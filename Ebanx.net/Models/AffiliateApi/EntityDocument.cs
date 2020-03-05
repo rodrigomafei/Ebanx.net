@@ -42,5 +42,31 @@ namespace Ebanx.net.Models.AffiliateApi
             cnpj,
             others
         }
+
+        /// <summary>
+        /// information if the fields have been filled 
+        /// </summary>
+        [JsonIgnore]
+        public bool IsValid
+        {
+            get
+            {
+                return string.IsNullOrEmpty(ValidateModel());
+            }
+        }
+
+        /// <summary>
+        /// Return message error if model is invalid
+        /// </summary>
+        /// <returns></returns>
+        public string ValidateModel()
+        {
+            var error = string.Empty;
+
+            if (string.IsNullOrEmpty(Number))
+                error += "Número do documento não informado\n";
+
+            return error;
+        }
     }
 }
