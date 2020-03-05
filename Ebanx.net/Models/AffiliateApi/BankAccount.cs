@@ -68,8 +68,14 @@ namespace Ebanx.net.Models.AffiliateApi
             if (string.IsNullOrEmpty(Number))
                 error += "Número da conta não informado\n";
 
+            if (string.IsNullOrEmpty(VerificationCode))
+                error += "Dígito verificador não informado\n";
+
             if (string.IsNullOrEmpty(BankBranchCode))
                 error += "Agência não informada\n";
+
+            if (string.IsNullOrEmpty(BranchVerificationCode))
+                error += "Dígito verificador da agência não informado\n";
 
             if (string.IsNullOrEmpty(BankIdentifier))
                 error += "Banco não informado\n";
