@@ -13,6 +13,14 @@ namespace Ebanx.net.Parameters.Requests
     public class PaymentRequest : RequestBase
     {
         /// <summary>
+        /// 
+        /// </summary>
+        public PaymentRequest()
+        {
+            Splites = new List<SplitRequest>();
+        }
+
+        /// <summary>
         /// Customer name.
         /// </summary>
         [JsonProperty("name"), Required, MinLength(1), MaxLength(100)]
@@ -237,5 +245,48 @@ namespace Ebanx.net.Parameters.Requests
         /// </summary>
         [JsonProperty("responsible")]
         public ResponsibleRequest Responsible { get; set; }
+
+
+        /// <summary>
+        /// A JSON object that represents the responsible. Required if person_type = business.
+        /// </summary>
+        [JsonProperty("split")]
+        public IList<SplitRequest> Splites { get; set; }
+    }
+
+    /// <summary>
+    /// You can split a payment between 2 or more recipients.
+    /// </summary>
+    public class SplitRequest
+    {
+        /// <summary>
+        /// Your code representing a recipient identificator.
+        /// </summary>
+        [JsonProperty("recipient_code")]
+        public string RecipientId { get; set; }
+
+        /// <summary>
+        /// A percentage of amount total value part.. E.g.,: 25
+        /// </summary>
+        [JsonProperty("percentage")]
+        public float? Percentage { get; set; }
+
+        /// <summary>
+        /// A amount to send to the recipient. Maximum two decimal places. E.g.,: 55.90
+        /// </summary>
+        [JsonProperty("amount")]
+        public float? Amount { get; set; }
+
+        /// <summary>
+        /// If is responsible for chargebacks. The rule is at least one recipient is responsible or all of them.
+        /// </summary>
+        [JsonProperty("liable")]
+        public bool Liable { get; set; }
+
+        /// <summary>
+        /// If you will be charged for a fee.
+        /// </summary>
+        [JsonProperty("charge_fee")]
+        public bool ChargeFee { get; set; }
     }
 }
