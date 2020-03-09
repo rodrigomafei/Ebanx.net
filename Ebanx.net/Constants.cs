@@ -19,7 +19,7 @@ namespace Ebanx.net
         /// <summary>
         /// Affiliate Stag Url
         /// </summary>
-        public const string APIUrlAffiliateProd = "https://affiliate-api.ebanxpay.com/v1/";
+        public const string APIUrlAffiliateProd = "https://affiliate-api.ebanxpay.com/v1/affiliate/";
 
         /// <summary>
         /// Affiliate Stag Url

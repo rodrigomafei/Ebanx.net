@@ -128,6 +128,7 @@ namespace Ebanx.net.Api.Shared
         public async Task<T> PostAsync<T>(object data, Dictionary<string, string> headers = null)
         {
             var response = await SendRequestAsync(HttpMethod.Post, GetBaseURI(), data, null, headers).ConfigureAwait(false);
+
             return await ProcessResponse<T>(response).ConfigureAwait(false);
         }
 
