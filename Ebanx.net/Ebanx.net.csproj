@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/rodrigomafei/Ebanx.net/blob/master/README.md</PackageProjectUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
-    <Version>2.0.15</Version>
+    <Version>2.0.16</Version>
     <PackageIconUrl>https://www.ebanx.com/wp-content/themes/ebanx/images/logo.svg</PackageIconUrl>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
