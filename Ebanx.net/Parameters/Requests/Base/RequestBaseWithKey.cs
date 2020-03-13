@@ -18,7 +18,7 @@ namespace Ebanx.net.Parameters.Requests.Base
             get
             {
                 if (Config.Keys == null)
-                    throw new ArgumentException("Ebanx keys not informed");
+                    return string.Empty;
 
                 return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.PaymentKeys.StagIntegrationKey : Config.Keys.PaymentKeys.ProdIntegrationKey;
             }
