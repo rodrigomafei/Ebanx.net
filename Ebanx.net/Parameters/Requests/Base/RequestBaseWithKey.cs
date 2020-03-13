@@ -18,7 +18,7 @@ namespace Ebanx.net.Parameters.Requests.Base
             get
             {
                 if (Config.Keys == null)
-                    return string.Empty;
+                    throw new ArgumentNullException("Config.Keys Integration Key");
 
                 return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.PaymentKeys.StagIntegrationKey : Config.Keys.PaymentKeys.ProdIntegrationKey;
             }
@@ -33,7 +33,7 @@ namespace Ebanx.net.Parameters.Requests.Base
             get 
             {
                 if (Config.Keys == null)
-                    throw new ArgumentException("Ebanx keys not informed");
+                    throw new ArgumentNullException("Config.Keys PublicIntegrationKey");
 
                 return Config.Environment == Api.Shared.EbanxAPIEnvironment.Staging ? Config.Keys.PaymentKeys.StagPublicIntegrationKey : Config.Keys.PaymentKeys.ProdPublicIntegrationKey; 
             } 

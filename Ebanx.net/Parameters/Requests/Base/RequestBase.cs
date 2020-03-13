@@ -49,7 +49,7 @@ namespace Ebanx.net.Parameters.Requests.Base
             if (string.IsNullOrEmpty(msgReturn))
                 return true;
 
-            throw new ArgumentException(msgReturn);
+            throw new Exception(msgReturn);
         }
     }
 }
