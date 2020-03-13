@@ -35,21 +35,30 @@ namespace Ebanx.net.Parameters.Requests.Base
         /// <returns></returns>
         public static bool IsModelValid(this object obj)
         {
-            var resultadoValidacao = new List<ValidationResult>();
-            var contexto = new ValidationContext(obj, null, null);
-            Validator.TryValidateObject(obj, contexto, resultadoValidacao, true);
-
-            var msgReturn = "";
-
-            foreach (var item in resultadoValidacao)
+            try
             {
-                msgReturn += "-" + item.ErrorMessage + "\n";
+                var resultadoValidacao = new List<ValidationResult>();
+                var contexto = new ValidationContext(obj, null, null);
+                Validator.TryValidateObject(obj, contexto, resultadoValidacao, true);
+
+                var msgReturn = "";
+
+                foreach (var item in resultadoValidacao)
+                {
+                    msgReturn += "-" + item.ErrorMessage + "\n";
+                }
+
+                if (string.IsNullOrEmpty(msgReturn))
+                    return true;
+
+                return false;
+
             }
 
-            if (string.IsNullOrEmpty(msgReturn))
-                return true;
-
-            throw new Exception(msgReturn);
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
