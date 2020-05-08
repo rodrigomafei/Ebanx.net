@@ -238,7 +238,24 @@ namespace Ebanx.net.Parameters.Requests
         ///* personal: Natural person.
         /// </summary>
         [JsonProperty("person_type")]
-        public string PersonType { get; set; }
+        public string PersonType 
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Document))
+                    return string.Empty;
+
+                var document = Document
+                    .Replace(".", "")
+                    .Replace("/", "")
+                    .Replace("-", "")
+                    .Replace(",", "")
+                    .Replace(" ", "")
+                    ;
+
+                return document.Length.Equals(11) ? "personal" : "business";
+            } 
+        }
 
         /// <summary>
         /// A JSON object that represents the responsible. Required if person_type = business.
