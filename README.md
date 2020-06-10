@@ -1,5 +1,5 @@
 # Ebanx.net
-Is a .net library from [Ebanx Payments](https://developers.ebanxpagamentos.com/)
+It's a .net library for [Ebanx Payments](https://developers.ebanxpagamentos.com/) implementation.
 
 # Start
 ### Install in your project
