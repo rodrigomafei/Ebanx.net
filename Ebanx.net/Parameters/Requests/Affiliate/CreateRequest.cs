@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Ebanx.net.Models.Country;
+using static Ebanx.net.Parameters.Requests.Affiliate.CreateRequest;
 
 namespace Ebanx.net.Parameters.Requests.Affiliate
 {
@@ -85,6 +86,23 @@ namespace Ebanx.net.Parameters.Requests.Affiliate
         {
             individual,
             company
+        }
+    }
+
+    public class RecipientTypesPresentation
+    {
+        public RecipientTypes RecipientType { get; set; }
+        public string RecipientTypePresentation 
+        {
+            get
+            {
+                switch (RecipientType)
+                {
+                    case RecipientTypes.company: return "Pessoa Jurídica";
+                    case RecipientTypes.individual: return "Pessoa Física";
+                    default: return string.Empty;
+                }
+            }
         }
     }
 }

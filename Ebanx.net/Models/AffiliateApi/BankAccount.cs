@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Ebanx.net.Models.AffiliateApi.BankAccount;
 
 namespace Ebanx.net.Models.AffiliateApi
 {
@@ -80,5 +81,22 @@ namespace Ebanx.net.Models.AffiliateApi
             return error;
         }
 
+    }
+
+    public class BankAccountTypesPresentation
+    {
+        public BankAccountTypes BankAccountType { get; set; }
+        public string BankAccountTypePresentation 
+        {
+            get
+            {
+                switch (BankAccountType)
+                {
+                    case BankAccountTypes.corrente: return "Corrente";
+                    case BankAccountTypes.poupanca: return "Poupança";
+                    default: return string.Empty;
+                }
+            }
+        }
     }
 }
