@@ -265,7 +265,7 @@ namespace Ebanx.net.Parameters.Requests
 
 
         /// <summary>
-        /// A JSON object that represents the responsible. Required if person_type = business.
+        /// You can split a payment between 2 or more recipients.
         /// </summary>
         [JsonProperty("split")]
         public IList<SplitRequest> Splites { get; set; }

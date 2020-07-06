@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Ebanx.net.Models.AffiliateApi.EntityDocument;
 using static Ebanx.net.Models.Country;
 
 namespace Ebanx.net.Models.AffiliateApi
@@ -11,7 +12,7 @@ namespace Ebanx.net.Models.AffiliateApi
     public class EntityDocument
     {
         [JsonProperty("country")]
-        private string Country 
+        private string Country
         {
             get
             {
@@ -23,7 +24,7 @@ namespace Ebanx.net.Models.AffiliateApi
         [JsonProperty("number")]
         public string Number { get; set; }
         [JsonProperty("type")]
-        private string Type 
+        private string Type
         {
             get
             {
@@ -67,6 +68,27 @@ namespace Ebanx.net.Models.AffiliateApi
                 error += "Número do documento não informado\n";
 
             return error;
+        }
+    }
+
+    public class DocumentTypesPresentation
+    {
+        public DocumentTypes DocumentType { get; set; }
+        public string DocumentTypePresentation
+        {
+            get
+            {
+                switch (DocumentType)
+                {
+                    case DocumentTypes.cnpj: return "CNPJ";
+                    case DocumentTypes.cpf: return "CPF";
+                    case DocumentTypes.driving_licence: return "CNH";
+                    case DocumentTypes.national_identity_card: return "RG";
+                    case DocumentTypes.passport: return "Passaporte";
+                    case DocumentTypes.others: return "Outro";
+                    default: return string.Empty;
+                }
+            }
         }
     }
 }
