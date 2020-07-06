@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452;netstandard1.4;netstandard2.0</TargetFrameworks>
-    <Authors>Rodrigo Mafei</Authors>
+    <Authors>Infinitus Solutions Team</Authors>
     <Company>Infinitus Solutions</Company>
     <RepositoryUrl>https://github.com/rodrigomafei/Ebanx.net</RepositoryUrl>
     <PackageTags>ebanx, infinitus</PackageTags>
@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/rodrigomafei/Ebanx.net/blob/master/README.md</PackageProjectUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
-    <Version>2.0.17</Version>
+    <Version>2.0.18</Version>
     <PackageIconUrl>https://www.ebanx.com/wp-content/themes/ebanx/images/logo.svg</PackageIconUrl>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
