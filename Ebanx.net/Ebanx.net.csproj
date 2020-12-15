@@ -13,13 +13,13 @@
     <PackageProjectUrl>https://github.com/rodrigomafei/Ebanx.net/blob/master/README.md</PackageProjectUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
-    <Version>2.0.20</Version>
+    <Version>2.0.21</Version>
     <PackageIconUrl>https://www.ebanx.com/wp-content/themes/ebanx/images/logo.svg</PackageIconUrl>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
 
